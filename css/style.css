@@ -464,11 +464,13 @@ h1, h2, h3, h4, h5, h6 {
     backdrop-filter: blur(3px);
 }
 
-.portfolio-item:hover .portfolio-img {
+.portfolio-item:hover .portfolio-img,
+.portfolio-item.touch-hover .portfolio-img {
     transform: scale(1.1);
 }
 
-.portfolio-item:hover .portfolio-overlay {
+.portfolio-item:hover .portfolio-overlay,
+.portfolio-item.touch-hover .portfolio-overlay {
     opacity: 1;
 }
 
@@ -505,8 +507,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .portfolio-item:hover h3,
+.portfolio-item.touch-hover h3,
 .portfolio-item:hover p,
-.portfolio-item:hover .portfolio-link {
+.portfolio-item.touch-hover p,
+.portfolio-item:hover .portfolio-link,
+.portfolio-item.touch-hover .portfolio-link {
     transform: translateY(0);
 }
 

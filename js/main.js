@@ -117,4 +117,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    /* ==============================================
+       6. Fix para Hover en iOS/Dispositivos Táctiles
+       ============================================== */
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    portfolioItems.forEach(item => {
+        item.addEventListener('touchstart', function(e) {
+            // Si el elemento no tiene la clase touch-hover, la agregamos
+            if (!this.classList.contains('touch-hover')) {
+                // Quitamos la clase de todos los items para tener solo uno activo a la vez
+                portfolioItems.forEach(p => p.classList.remove('touch-hover'));
+                
+                this.classList.add('touch-hover');
+            }
+        });
+    });
+
+    // Cerrar el hover si el usuario hace "tap" fuera de las cards
+    document.addEventListener('touchstart', function(e) {
+        if (!e.target.closest('.portfolio-item')) {
+            portfolioItems.forEach(item => item.classList.remove('touch-hover'));
+        }
+    });
+
 });
